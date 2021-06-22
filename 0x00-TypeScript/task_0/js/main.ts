@@ -23,9 +23,10 @@ const studentsList: Student[] = [student1, student2]
 
 const table: HTMLTableElement = document.createElement('table');
 document.body.appendChild(table);
+const tbody: HTMLTableSectionElement = table.createTBody();
 
 studentsList.forEach((student) => {
-    const tr: HTMLTableRowElement = table.insertRow();
+    const tr: HTMLTableRowElement = tbody.insertRow();
     const td1: HTMLTableCellElement = tr.insertCell();
     const td2: HTMLTableCellElement = tr.insertCell();
     td1.innerHTML = student.firstName
