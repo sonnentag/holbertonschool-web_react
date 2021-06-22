@@ -23,8 +23,14 @@ export class Teacher implements TeacherInterface {
 }
 
 export function createEmployee(salary: number | string): Director | Teacher {
-	if (typeof salary === 'number' && salary < 500) return new Teacher;
-	return new Director;
+	if (typeof salary === 'number' && salary < 500)
+	{
+    return new Teacher;
+	} 
+	else 
+	{
+	  return new Director;
+	} 
 }
 
 function isDirector(employee: DirectorInterface | TeacherInterface): boolean {
