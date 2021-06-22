@@ -21,13 +21,13 @@ const student2: Student = {
 
 const studentsList: Student[] = [student1, student2]
 
-const table = document.createElement('table');
+const table: HTMLTableElement = document.createElement('table');
 document.body.appendChild(table);
 
 studentsList.forEach((student) => {
-    const tr = table.insertRow();
-    const td1 = tr.insertCell();
-    const td2 = tr.insertCell();
+    const tr: HTMLTableRowElement = table.insertRow();
+    const td1: HTMLTableCellElement = tr.insertCell();
+    const td2: HTMLTableCellElement = tr.insertCell();
     td1.innerHTML = student.firstName
     td2.innerHTML = student.location
 });
