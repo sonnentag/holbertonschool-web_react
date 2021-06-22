@@ -7,7 +7,7 @@ export interface DirectorInterface {
 export interface TeacherInterface {
   workFromHome(): string;
   getCoffeeBreak(): string;
-  workDirectorTasks(): string;
+  workTeacherTasks(): string;
 }
 
 export class Director implements DirectorInterface {
@@ -32,6 +32,5 @@ function isDirector(employee: DirectorInterface | TeacherInterface): boolean {
 }
 
 function executeWork(employee: DirectorInterface | TeacherInterface): string {
-  if (employee instanceof Director) return employee.workDirectorTasks();
-  return employee.workTeacherTasks();
+  isDirector(employee) ? return employee.workDirectorTasks() : return employee.workTeacherTasks();
 }
