@@ -1,10 +1,10 @@
-export interface DirectorInterface {
+interface DirectorInterface {
 	workFromHome(): string;
 	getCoffeeBreak(): string;
 	workDirectorTasks(): string;
 }
 
-export interface TeacherInterface {
+interface TeacherInterface {
   workFromHome(): string;
   getCoffeeBreak(): string;
   workTeacherTasks(): string;
@@ -27,10 +27,17 @@ export function createEmployee(salary: number | string): Director | Teacher {
 	else return new Director();
 }
 
-function isDirector(employee: DirectorInterface | TeacherInterface): boolean {
+export function isDirector(employee: DirectorInterface | TeacherInterface): boolean {
   return employee instanceof Director;
 }
 
-function executeWork(employee: DirectorInterface | TeacherInterface): string {
+export function executeWork(employee: DirectorInterface | TeacherInterface): string {
   isDirector(employee) ? return employee.workDirectorTasks() : return employee.workTeacherTasks();
+}
+
+type Subjects = "Math" | "History";
+
+export function teachClass(todayClass:Subjects): string {
+  if (todayClass === "Math") return `Teaching Math`;
+  else if (todayClass === "History") return `Teaching History`;
 }
