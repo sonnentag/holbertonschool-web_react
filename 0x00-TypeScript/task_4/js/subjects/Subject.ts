@@ -1,7 +1,7 @@
 namespace Subjects {
   export class Subject {
-	  teacher: Teacher;
-    set setTeacher(teacher: Teacher) {
+	  teacher: TeacherInterface;
+    set setTeacher(teacher: TeacherInterface) {
       this.teacher = teacher;
     }
   }
