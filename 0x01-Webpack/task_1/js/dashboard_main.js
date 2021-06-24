@@ -8,8 +8,9 @@ $('body').append('<p>Copyright - Holberton School</p>');
 
 button.addEventListener("click", _.debounce(updateCounter));
 
-
 function updateCounter() {
   const clicks = $('#count').html().split(" ", 1) + 1 || 1;
   $('#count').html(`${clicks} clicks on the button`);
 }
+
+// "500"
