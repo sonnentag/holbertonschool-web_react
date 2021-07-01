@@ -13,6 +13,7 @@ module.exports = {
     compress: true,
     port: 3000,
   },
+	devtool: 'inline-source-map',
   performance: {
     hints: false,
     maxEntrypointSize: 512000,
