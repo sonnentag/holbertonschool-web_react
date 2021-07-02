@@ -9,7 +9,7 @@ const Notifications = () => {
       <p>Here is the list of notifications</p>
 			<button
         type='button'
-        style={{ display: 'inline', position: 'absolute', right: '0.1rem', top: '0.1rem',	margin: '0 0' }}
+        style={{ display: 'inline', position: 'absolute', right: '0.1rem', top: '0.1rem', margin: '0 0' }}
         aria-label='Close'
         onClick={() => console.log('Close button has been clicked')}
       >
