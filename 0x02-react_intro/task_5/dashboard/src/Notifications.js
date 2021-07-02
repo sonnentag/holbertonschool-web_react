@@ -1,7 +1,7 @@
-import React from 'react'
-import './Notifications.css'
-import icon from './close-icon.png'
-import { getLatestNotification } from './utils'
+import React from 'react';
+import './Notifications.css';
+import icon from './close-icon.png';
+import { getLatestNotification } from './utils';
 
 const Notifications = () => {
   return (
@@ -18,10 +18,11 @@ const Notifications = () => {
 		  <ul>
 				<li data-priority="default">New course available</li>
 				<li data-priority="urgent">New resume available</li>
-        <li data-priority="urgent" dangerouslySetInnerHTML={{ __html: getLatestNotification()}} />
+        <li data-priority="urgent" dangerouslySetInnerHTML={{ __html: getLatestNotification()}}></li>
 			</ul>
     </div>
   );
 };
 
 export default Notifications;
+        style={{ display: 'inline', position: 'absolute', right: '0.1rem', top: '0.1rem',	margin: '0 0' }}

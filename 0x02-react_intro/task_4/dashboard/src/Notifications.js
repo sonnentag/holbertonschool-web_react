@@ -25,3 +25,4 @@ const Notifications = () => {
 };
 
 export default Notifications;
+        style={{ display: 'inline', position: 'absolute', right: '0.1rem', top: '0.1rem',	margin: '0 0' }}
