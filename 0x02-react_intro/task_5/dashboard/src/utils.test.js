@@ -1,7 +1,7 @@
 import { getFullYear, getFooterCopy, getLatestNotification } from './utils'
 
 it('getFullYear', () => {
-  expect(getFullYear()).toEqual('2021');
+  expect(getFullYear()).toEqual(2021);
 });
 
 it('getFooterCopy with true or false', () => {

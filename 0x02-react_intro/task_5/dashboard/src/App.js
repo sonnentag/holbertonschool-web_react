@@ -1,3 +1,4 @@
+import React from 'react';
 import logo from './hlogo.jpg';
 import './App.css';
 import { getFullYear, getFooterCopy } from './utils';
