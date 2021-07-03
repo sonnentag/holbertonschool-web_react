@@ -9,7 +9,7 @@ it('renders without crashing', () => {
 });
 
 it('renders three list items', () => {
-  expect(wrapper.find('li').children().length).toEqual(3)
+  expect(wrapper.find('li').length).toEqual(3)
 });
 
 it('renders the correct text', () => {
