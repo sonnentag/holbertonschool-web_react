@@ -33,12 +33,12 @@ export function createEmployee(salary: number | string): Director | Teacher {
 	}	
 }
 
-export function isDirector(employee: DirectorInterface | TeacherInterface): boolean {
+export function isDirector(employee: DirectorInterface | TeacherInterface): employee is Director {
   return employee instanceof Director;
 }
 
 export function executeWork(employee: DirectorInterface | TeacherInterface): string {
-  isDirector(employee) ? return employee.workDirectorTasks() : return employee.workTeacherTasks();
+  return (isDirector(employee) ? employee.workDirectorTasks() : employee.workTeacherTasks());
 }
 
 export type Subjects = 'Math' | 'History';
