@@ -13,5 +13,8 @@
     "@typescript-eslint/eslint-plugin": "^2.4.0",
     "@typescript-eslint/parser": "^2.4.0",
     "typescript": "^3.6.4"
+  },
+  "dependencies": {
+    "eslint": "^7.30.0"
   }
 }
