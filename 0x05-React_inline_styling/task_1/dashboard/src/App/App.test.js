@@ -1,5 +1,6 @@
 /**
  * @jest-environment jsdom
+ * StyleSheetTestUtils.suppressStyleInjection()
  */
 
 import React from 'react';
