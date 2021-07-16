@@ -1,5 +1,4 @@
 import React from "react";
-import "../App/App.css";
 import Notifications from "../Notifications/Notifications";
 import Login from "../Login/Login";
 import Footer from "../Footer/Footer";
