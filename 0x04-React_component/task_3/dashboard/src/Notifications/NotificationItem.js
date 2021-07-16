@@ -1,8 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { StyleSheet, css } from 'aphrodite';
 
 function NotificationItem({type, html, value}) {
-  return <li data-notification-type={type} dangerouslySetInnerHTML={html}>{value}</li>
+  const listitem = { 
+  return {
+	  <li data-notification-type={type} dangerouslySetInnerHTML={html}>{value} classname={css(type === "urgent" ? styles.urgent : styles.default);}</li>
+  }
 };
 
 NotificationItem.prototype = {
@@ -16,5 +20,14 @@ NotificationItem.prototype = {
 NotificationItem.defaultProps = {
   type: 'default',
 };
+
+const styles = StyleSheet.create({
+    default: {
+        color: "blue",
+    },
+    urgent: {
+        color: "red",
+    }
+});
 
 export default NotificationItem;

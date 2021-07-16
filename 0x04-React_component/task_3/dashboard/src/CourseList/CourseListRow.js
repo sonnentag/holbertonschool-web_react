@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { StyleSheet, css } from 'aphrodite';
 
 CourseListRow.propTypes = {
   isHeader: PropTypes.bool,
@@ -15,6 +16,9 @@ CourseListRow.defaultProps = {
   textSecondCell: null
 };
 
+const styles = StyleSheet.create({
+
+})
 function CourseListRow({ isHeader, textFirstCell, textSecondCell }) {
   if (isHeader) {
 	  if (textSecondCell) {
