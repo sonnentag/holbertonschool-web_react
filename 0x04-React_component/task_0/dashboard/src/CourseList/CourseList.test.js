@@ -3,12 +3,6 @@ import { shallow } from 'enzyme';
 import CourseList from './CourseList'
 import CourseListRow from './CourseListRow'
 
-const listCourses = [
-	{id: 1, name: 'ES6', credit: 60},
-	{id: 2, name: 'Webpack', credit: 20},
-	{id: 3, name: 'React', credit: 40},
-];
-
 describe('CourseList', () => {
   it('renders without crashing', () => {
     const wrapper = shallow(<CourseList />)
@@ -16,7 +10,7 @@ describe('CourseList', () => {
   });
 
   it('renders 5 rows', () => {
-    const wrapper = shallow(<CourseList listCourses={listCourses} />);
+    const wrapper = shallow(<CourseList />);
     expect(wrapper.find(CourseListRow).length).toEqual(5);
   });
 });

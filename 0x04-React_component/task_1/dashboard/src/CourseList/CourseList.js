@@ -6,23 +6,27 @@ import PropTypes from 'prop-types';
 
 function CourseList({ listCourses }) {
   return (
+	  <>
     <table id='CourseList'>
       <thead>
-        <CourseListRow textFirstCell="Available courses" isHeader={true} />
-        <CourseListRow textFirstCell="Course name" textSecondCell="Credit" isHeader={true} />
+        <CourseListRow textFirstCell="Available courses" isHeader={true}></CourseListRow>
+        <CourseListRow textFirstCell="Course name" textSecondCell="Credit" isHeader={true}></CourseListRow>
       </thead>
       <tbody>
-        {listCourses.length === 0 && (<CourseListRow textFirstCell="No course available yet" isHeader={false}/>)}
+              { listCourses
+               ? listCourses.map((item) => {
+                     <CourseListRow
+                       key={item.id}
+                       textFirstCell={item.name}
+                       textSecondCell={item.credit}
+                     />
+                 })
+               : <CourseListRow textFirstCell="No course available yet" />
+              }
 
-        {listCourses.length > 0 && listCourses.map((course) => (
-          <CourseListRow
-            key={course.id}
-            textFirstCell={course.name}
-            textSecondCell={course.credit}
-          />
-        ))}
       </tbody>
     </table>
+	  </>
   );
 }
 
@@ -34,4 +38,4 @@ CourseList.defaultProps = {
   listCourses: []
 }
 
-export default CourseList;
+export default CourseList

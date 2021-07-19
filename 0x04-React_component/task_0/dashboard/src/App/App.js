@@ -25,14 +25,6 @@ class App extends React.Component {
     super(props);
   }
 
-  static propTypes = {
-    isLoggedIn: PropTypes.bool
-  };
-
-  static defaultProps = {
-    isLoggedIn: false
-  };
-
   render () {
     return (
       <>
@@ -48,5 +40,13 @@ class App extends React.Component {
     );
   }
 }
+
+App.propTypes = {
+  isLoggedIn: PropTypes.bool
+};
+
+App.defaultProps = {
+  isLoggedIn: false
+};
 
 export default App;
