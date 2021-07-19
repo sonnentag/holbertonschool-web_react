@@ -5,7 +5,9 @@ import Header from "../Header/Header";
 import Login from "../Login/Login";
 import Notifications from "../Notifications/Notifications";
 import CourseList from "../CourseList/CourseList";
+import { getLatestNotification } from '../utils/utils';
 import PropTypes from 'prop-types'
+
 
 App.propTypes = {
   isLoggedIn: PropTypes.bool
@@ -25,23 +27,18 @@ function App({ isLoggedIn }) {
   const listNotifications = [
     {id: 1, type: 'default', value: 'New course available'},
     {id: 2, type: 'urgent', value: 'New resume available'},
-    {id: 3, type: 'urgent', html: getLatestNotification()}
+    {id: 3, type: 'urgent', html: { __html: getLatestNotification() } }
   ];
 
-  if (isLoggedIn) {
-    const element = <CourseList listCourses={listCourses} />
-  } else {
-    const element = <Login />
-  };
   return (
-	  <>
-		  <Notifications listNotifications={listNotifications} />
+    <>
+      <Notifications listNotifications={listNotifications} />
       <div className="App">
         <Header /> 
-				{element}
+        {isLoggedIn ? <CourseList listCourses={listCourses} /> : <Login />}
         <Footer /> 
       </div>
-		</>
+    </>
   );
 }
 

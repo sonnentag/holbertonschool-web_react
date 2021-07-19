@@ -4,39 +4,36 @@ import PropTypes from 'prop-types'
 CourseListRow.propTypes = {
   isHeader: PropTypes.bool,
   textFirstCell: PropTypes.string.isRequired,
-  textSecondCell: PropTypes.oneOfType([
-	  PropTypes.string,
-	  PropTypes.number
-  ])
+  textSecondCell: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
 
 CourseListRow.defaultProps = {
   isHeader: false,
-  textSecondCell: null
+  textSecondCell: null,
 };
 
 function CourseListRow({ isHeader, textFirstCell, textSecondCell }) {
+	let ret;
   if (isHeader) {
 	  if (textSecondCell) {
-		  const ret = (
+		  ret = (
 			  <>
 			    <th>{textFirstCell}</th>
 			    <th>{textSecondCell}</th>
 			  </>
 			)
+	} else {
+		ret = <th colSpan='2'>{textFirstCell}</th>
+	}
     } else {
-		  const ret = (
+		  ret = (
 			  <>
 			    <td>{textFirstCell}</td>
 				  <td>{textSecondCell}</td>
 			  </>
 		  )
     }
-	} else {
-		const ret = <th colSpan='2'>{textFirstCell}</th>
-	}
-
-	return <tr>{ret}</tr>
+	return <><tr>{ret}</tr></>
 }
 
 export default CourseListRow

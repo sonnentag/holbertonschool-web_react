@@ -6,10 +6,10 @@ function Login() {
 	  <>
       <main className="App-body">
         <p>Login to access the full dashboard</p>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email"/>
-        <label for="pwd">Password:</label>
-        <input type="password" id="pwd" name="pwd"/>
+        <label htmlFor="email">Email:</label>
+        <input type="text" id="email" name="email"/>
+        <label htmlFor="pwd">Password:</label>
+        <input type="text" id="pwd" name="pwd"/>
         <button type='button'>OK</button>
       </main>
 	  </>

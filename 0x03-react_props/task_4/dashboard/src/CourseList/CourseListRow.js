@@ -13,25 +13,26 @@ CourseListRow.defaultProps = {
 };
 
 function CourseListRow({ isHeader, textFirstCell, textSecondCell }) {
+	let ret;
   if (isHeader) {
 	  if (textSecondCell) {
-		  const ret = (
+		  ret = (
 			  <>
 			    <th>{textFirstCell}</th>
 			    <th>{textSecondCell}</th>
 			  </>
 			)
+	} else {
+		ret = <th colSpan='2'>{textFirstCell}</th>
+	}
     } else {
-		  const ret = (
+		  ret = (
 			  <>
 			    <td>{textFirstCell}</td>
 				  <td>{textSecondCell}</td>
 			  </>
 		  )
     }
-	} else {
-		const ret = <th colSpan='2'>{textFirstCell}</th>
-	}
 
 	return <tr>{ret}</tr>
 }
