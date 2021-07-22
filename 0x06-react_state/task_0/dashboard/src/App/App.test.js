@@ -26,4 +26,10 @@ describe('<App />', () => {
   it('contains a <Notifications /> component', () => {
     shallow(<Notifications />)
   });
+/**
+ * Define the propTypes and the defaultProps for the new props
+ * When clicking on Your notifications, call handleDisplayDrawer
+ * When clicking on the close button, call handleHideDrawer*
+ */
+	
 });
