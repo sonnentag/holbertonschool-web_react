@@ -2,9 +2,17 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import Notifications from './Notifications'
 import NotificationItem from './NotificationItem'
-
+import { StyleSheetTestUtils } from 'aphrodite';
 
 describe('<Notifications />', () => {
+  beforeEach(() => {
+    StyleSheetTestUtils.suppressStyleInjection();
+  });
+
+  afterEach(() => {
+    StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
+  });
+
   const wrapper = shallow(<Notifications />)
 
   it('renders without crashing', () => {
