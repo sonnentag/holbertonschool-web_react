@@ -43,5 +43,5 @@ describe('<Notifications />', () => {
     const wrapper = shallow(<Notifications displayDrawer={true} />)
     expect(wrapper.find('.Notifications').length).toEqual(1)
 	});
-
+/* handleDisplayDrawer handleHideDrawer */
 });
