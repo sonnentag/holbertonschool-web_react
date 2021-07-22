@@ -4,15 +4,12 @@ import PropTypes from 'prop-types'
 CourseListRow.propTypes = {
   isHeader: PropTypes.bool,
   textFirstCell: PropTypes.string.isRequired,
-  textSecondCell: PropTypes.oneOfType([
-	  PropTypes.string,
-	  PropTypes.number
-  ])
+  textSecondCell: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
 
 CourseListRow.defaultProps = {
   isHeader: false,
-  textSecondCell: null
+  textSecondCell: null,
 };
 
 const rowStyle = {
@@ -24,27 +21,13 @@ const headerRowStyle = {
 }
 
 function CourseListRow({ isHeader, textFirstCell, textSecondCell }) {
-  if (isHeader) {
-	  if (textSecondCell) {
-		  const ret = (
-			  <>
-			    <th>{textFirstCell}</th>
-			    <th>{textSecondCell}</th>
-			  </>
-			)
-    } else {
-		  const ret = (
-			  <>
-			    <td>{textFirstCell}</td>
-				  <td>{textSecondCell}</td>
-			  </>
-		  )
-    }
-	} else {
-		const ret = <th colSpan='2'>{textFirstCell}</th>
-	}
-
-	return <tr style={isHeader ? headerRowStyle : rowStyle}>{ret}</tr>
-}
+  return (
+    <tr style={isHeader ? headerRowStyle : rowStyle}>
+      { isHeader && textSecondCell && <><th>{textFirstCell}</th><th>{textSecondCell}</th></> }
+      { isHeader && !textSecondCell && <><th colSpan='2'>{textFirstCell}</th></> }
+      { !isHeader && <><td>{textFirstCell}</td><td>{textSecondCell}</td></> }
+    </tr>
+  );
+};
 
 export default CourseListRow

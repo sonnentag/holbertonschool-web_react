@@ -7,9 +7,9 @@ function Login() {
 	  <>
       <main className={css(styles.main)}>
         <p>Login to access the full dashboard</p>
-        <label for="email">Email:</label>
+        <label htmlFor="email">Email:</label>
         <input type="email" id="email" name="email"/>
-        <label for="pwd">Password:</label>
+        <label htmlFor="pwd">Password:</label>
         <input type="password" id="pwd" name="pwd"/>
         <button type='button'>OK</button>
       </main>
@@ -19,7 +19,7 @@ function Login() {
 
 const styles = StyleSheet.create({
   main: {
-    margin: 48px;
+    margin: "48px"
   }
 })
 

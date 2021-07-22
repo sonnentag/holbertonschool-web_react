@@ -1,9 +1,12 @@
 import React from "react";
-import "../App/App.css";
+import "./App.css";
 import Notifications from "../Notifications/Notifications";
 import Login from "../Login/Login";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
+import WithLogging from "../HOC/WithLogging";
+import BodySection from "../BodySection/BodySection";
+import BodySectionWithMarginBottom from "../BodySection/BodySectionWithMarginBottom";
 import CourseList from "../CourseList/CourseList";
 import PropTypes from 'prop-types';
 import { getLatestNotification } from "../utils/utils";
@@ -23,20 +26,10 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
-		this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.handleKeyDownCombination = this.handleKeyDownCombination.bind(this);
   }
 
-  static propTypes = {
-	  logOut: PropTypes.func,
-    isLoggedIn: PropTypes.bool
-  };
-
-  static defaultProps = {
-	  logOut: () => {},
-    isLoggedIn: false
-  };
-
-  handleKeyDown(event) {
+  handleKeyDownCombination(event) {
     if (event.key === "h" && event.ctrlKey) {
       alert("Logging you out");
       this.props.logOut();
@@ -44,11 +37,11 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    window.addEventListener('keydown', this.handleKeyDown);
+    document.addEventListener('keydown', this.handleKeyDownCombination);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('keydown', this.handleKeyDown);
+    document.removeEventListener('keydown', this.handleKeyDownCombination);
   }
 
   render () {
@@ -57,14 +50,32 @@ class App extends React.Component {
         <Notifications listNotifications={listNotifications} />
         <div className="App">
           <Header />
-          <hr />
-            {this.props.isLoggedIn ? <CourseList listCourses={listCourses} /> : <Login />}
-          <hr />
+            { this.props.isLoggedIn 
+              ? <BodySectionWithMarginBottom title="Course list"> 
+		  <CourseList listCourses={listCourses} /> 
+                </BodySectionWithMarginBottom>
+              : <BodySectionWithMarginBottom title="Log in to continue">
+		  <Login />
+                </BodySectionWithMarginBottom>
+	    }
           <Footer />
         </div>
+        <BodySection title="News from the School">
+          <p>dhda d981273t sqwcdfjk</p>
+        </BodySection> 
       </>
     );
   }
 }
+
+App.propTypes = {
+  isLoggedIn: PropTypes.bool,
+  logOut: PropTypes.func
+};
+
+App.defaultProps = {
+  isLoggedIn: false,
+  logOut: () => {}
+};
 
 export default App;

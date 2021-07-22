@@ -13,18 +13,18 @@ class BodySectionWithMarginBottom extends React.Component {
       <div className={css(style.bodySectionWithMargin)}>
         <BodySection {...this.props}/>
       </div>
-  	)
+        )
   }
 }
 
 BodySectionWithMarginBottom.propTypes = {
-	title: PropTypes.string,
-	children: PropTypes.element
+        title: PropTypes.string,
+        children: PropTypes.element
 }
 
 const style = StyleSheet.create({
   bodySectionWithMargin: {
-    marginBottom: 40px
+    marginBottom: "40px"
   }
 })
 

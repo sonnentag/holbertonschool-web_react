@@ -5,6 +5,8 @@ import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import CourseList from "../CourseList/CourseList";
 import PropTypes from 'prop-types';
+import BodySection from '../BodySection/BodySection';
+import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBottom';
 import { getLatestNotification } from "../utils/utils";
 import { StyleSheet, css } from 'aphrodite';
 
@@ -22,10 +24,10 @@ const listNotifications = [
 
 const styles = StyleSheet.create({
   body: {
-    font-family: Arial, Helvetica, sans-serif;
+    fontFamily: 'Arial, Helvetica, sans-serif'
   },
   footer: {
-    font-family: Arial, Helvetica, sans-serif;
+    fontFamily: 'Arial, Helvetica, sans-serif'
   }
 })
 
@@ -33,7 +35,7 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
-		this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
   static propTypes = {
@@ -42,7 +44,7 @@ class App extends React.Component {
   };
 
   static defaultProps = {
-	  logOut: () => {},
+    logOut: () => {},
     isLoggedIn: false
   };
 
@@ -65,13 +67,21 @@ class App extends React.Component {
     return (
       <>
         <Notifications listNotifications={listNotifications} />
-        <div className={css(styles.body)}>
+        <div className="App">
           <Header />
-          <hr />
-            {this.props.isLoggedIn ? <CourseList listCourses={listCourses} /> : <Login />}
-          <hr />
-          <Footer className={css(styles.footer)} />
+            { this.props.isLoggedIn
+              ? <BodySectionWithMarginBottom title="Course list">
+                  <CourseList listCourses={listCourses} />
+                </BodySectionWithMarginBottom>
+              : <BodySectionWithMarginBottom title="Log in to continue">
+                  <Login />
+                </BodySectionWithMarginBottom>
+            }
+          <Footer />
         </div>
+        <BodySection title="News from the School">
+          <p>dhda d981273t sqwcdfjk</p>
+        </BodySection>
       </>
     );
   }
