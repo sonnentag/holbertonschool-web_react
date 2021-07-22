@@ -5,8 +5,17 @@ import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import Login from '../Login/Login';
 import Notifications from '../Notifications/Notifications';
+import { StyleSheetTestUtils } from 'aphrodite';
 
 describe('<App />', () => {
+  beforeEach(() => {
+    StyleSheetTestUtils.suppressStyleInjection();
+  });
+
+  afterEach(() => {
+    StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
+  });
+
   it('App renders without crashing', () => {
     shallow(<App />)
   });
