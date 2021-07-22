@@ -4,27 +4,32 @@ import { StyleSheet, css } from 'aphrodite';
 
 function Login() {
   return (
-	  <>
-      <main className={css(styles.login)}>
-          <p>Login to access the full dashboard</p>
-        <div className="login-group">
-          <label htmlFor="email">Email:</label>
-          <input type="email" id="email" name="email"/>
-        </div>
-        <div className="login-group">
-          <label htmlFor="pwd">Password:</label>
-          <input type="password" id="pwd" name="pwd"/>
-        </div>
-          <button type='button'>OK</button>
+    <>
+      <main className={css(styles.main)}>
+        <p>Login to access the full dashboard</p>
+        <label htmlFor="email" className={css(styles.blockLabel)}>Email:</label>
+        <input type="email" id="email" name="email"/>
+        <label htmlFor="pwd" className={css(styles.blockLabel)}>Password:</label>
+        <input type="password" id="pwd" name="pwd"/>
+        <button type='button'>OK</button>
       </main>
-	  </>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
-  login: {
- margin: 0,
-  }
+  main: {
+    margin: "48px",
+    justifyContent: "center",
+    '@media (max-width: 900px)': {
+      margin: 0,
+    },
+  },
+    blockLabel: {
+      '@media (max-width: 900px)': {
+      display: "block",
+    },
+  },
 })
 
 export default Login;
