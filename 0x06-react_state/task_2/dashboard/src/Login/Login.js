@@ -7,7 +7,6 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoggedIn: false,
       email: '',
       password: '',
       enableSubmit: false,
@@ -19,7 +18,8 @@ class Login extends Component {
   }
 
   handleLoginSubmit(event) {
-    this.setState({ isLoggedIn: true });
+    const { email, password } = this.state;
+    this.props.logIn(email, password);
   }
 
   handleChangeEmail(event) {
@@ -40,10 +40,10 @@ class Login extends Component {
         <p>Login to access the full dashboard</p>
         <form onSubmit={this.handleLoginSubmit}>
           <label htmlFor="email" className={css(styles.blockLabel)}>Email:</label>
-          <input type="text" name="email" value={this.state.email} onChange={this.handleChangeEmail}/>
+          <input type="email" name="email" value={this.state.email} onChange={this.handleChangeEmail}/>
           <label htmlFor="password" className={css(styles.blockLabel)}>Password:</label>
-          <input type="text" name="password" value={this.state.password} onChange={this.handleChangePassword}/>
-	  <input type="submit" value="Submit"/>}
+          <input type="password" name="password" value={this.state.password} onChange={this.handleChangePassword}/>
+	  {this.state.enableSubmit && <input type="submit" value="Submit"/>}
         </form>
       </main>
     );
