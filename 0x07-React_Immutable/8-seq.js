@@ -8,7 +8,7 @@ const printBestStudents = (object) => {
       firstName: student.firstName[0].toUpperCase() + student.firstName.substring(1),
       lastName: student.lastName[0].toUpperCase() + student.lastName.substring(1),
     }))
-    .toJs());
+    .toObject());
 };
 
 export default printBestStudents;
