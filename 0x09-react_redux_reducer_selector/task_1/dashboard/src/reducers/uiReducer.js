@@ -26,6 +26,7 @@ const uiReducer = (state = Map(initialState), action) => {
 
     default:
       return state;
+  };
 };
 
 export default uiReducer;
